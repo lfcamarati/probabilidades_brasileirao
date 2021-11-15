@@ -1,14 +1,18 @@
 import 'package:probabilidades_brasileirao/model/menu/header_menu.dart';
 import 'package:probabilidades_brasileirao/model/menu/item_menu.dart';
 import 'package:probabilidades_brasileirao/model/menu/menu.dart';
+import 'package:probabilidades_brasileirao/model/menu/full_scrollable_item_menu.dart';
 
 class MenuSerieA {
 
   static List<String> headersByTeam = ['N', 'Time', 'Prob (%)'];
   static List<String> headersByScore = ['Pontos', 'Prob (%)'];
+  static List<String> headersByClassification =
+    ['N', 'Times', 'PG', 'J', 'V', 'E', 'D', 'GF', 'GC', 'S', 'R'];
 
   static HeaderMenu probabilidadesTime = HeaderMenu('Probabilidades por Time');
   static HeaderMenu probabilidadesPontuacao = HeaderMenu('Probabilidades por Pontuação');
+  static HeaderMenu classificacao = HeaderMenu('Classificação');
   static HeaderMenu estatisticas = HeaderMenu('Estatísticas');
 
   static List<Menu> getMenu() {
@@ -56,6 +60,44 @@ class MenuSerieA {
         'Rebaixamento',
         '/futebol/rebaixamento_pontseriea',
         headersByScore
+      ),
+
+      classificacao,
+
+      FullScrollableItemMenu(
+        'Classificação geral',
+        '/futebol/classificacao-geral_seriea',
+        headersByClassification
+      ),
+
+      FullScrollableItemMenu(
+        'Classificação das últimas 10 rodadas',
+        '/futebol/classificacao-das-ultimas-10-rodadas_seriea',
+        headersByClassification
+      ),
+
+      FullScrollableItemMenu(
+        'Classificação como mandante',
+        '/futebol/classificacao-como-mandante_seriea',
+        headersByClassification
+      ),
+
+      FullScrollableItemMenu(
+        'Classificação como visitante',
+        '/futebol/classificacao-como-visitante_seriea',
+        headersByClassification
+      ),
+
+      FullScrollableItemMenu(
+        'Classificação do turno',
+        '/futebol/classificacao-do-turno_seriea',
+        headersByClassification
+      ),
+
+      FullScrollableItemMenu(
+        'Classificação do returno',
+        '/futebol/classificacao-do-returno_seriea',
+        headersByClassification
       ),
 
       estatisticas,

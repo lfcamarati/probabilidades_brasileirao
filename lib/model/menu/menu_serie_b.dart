@@ -1,3 +1,4 @@
+import 'package:probabilidades_brasileirao/model/menu/full_scrollable_item_menu.dart';
 import 'package:probabilidades_brasileirao/model/menu/header_menu.dart';
 import 'package:probabilidades_brasileirao/model/menu/item_menu.dart';
 import 'package:probabilidades_brasileirao/model/menu/menu.dart';
@@ -6,9 +7,12 @@ class MenuSerieB {
 
   static List<String> headersByTeam = ['N', 'Time', 'Prob (%)'];
   static List<String> headersByScore = ['Pontos', 'Prob (%)'];
+  static List<String> headersByClassification =
+    ['N', 'Times', 'PG', 'J', 'V', 'E', 'D', 'GF', 'GC', 'S', 'R'];
 
   static HeaderMenu probabilidadesTime = HeaderMenu('Probabilidades por Time');
   static HeaderMenu probabilidadesPontuacao = HeaderMenu('Probabilidades por Pontuação');
+  static HeaderMenu classificacao = HeaderMenu('Classificação');
   static HeaderMenu estatisticas = HeaderMenu('Estatísticas');
 
   static List<Menu> getMenu() {
@@ -47,6 +51,44 @@ class MenuSerieB {
         'Rebaixamento',
         '/futebol/rebaixamento-por-pontuacao-serie-b',
         headersByScore
+      ),
+
+      classificacao,
+
+      FullScrollableItemMenu(
+        'Classificação geral',
+        '/futebol/classificacao-geral-serie-b',
+        headersByClassification
+      ),
+
+      FullScrollableItemMenu(
+        'Classificação das últimas 10 rodadas',
+        '/futebol/classificacao-das-ultimas-10-rodadas-serie-b',
+        headersByClassification
+      ),
+
+      FullScrollableItemMenu(
+        'Classificação como mandante',
+        '/futebol/classificacao-como-mandante-serie-b',
+        headersByClassification
+      ),
+
+      FullScrollableItemMenu(
+        'Classificação como visitante',
+        '/futebol/classificacao-como-visitante-serie-b',
+        headersByClassification
+      ),
+
+      FullScrollableItemMenu(
+        'Classificação do turno',
+        '/futebol/classificacao-do-turno-serie-b',
+        headersByClassification
+      ),
+
+      FullScrollableItemMenu(
+        'Classificação do returno',
+        '/futebol/classificacao-do-returno-serie-b',
+        headersByClassification
       ),
 
       estatisticas,

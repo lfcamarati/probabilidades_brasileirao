@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:probabilidades_brasileirao/model/menu/menu.dart';
+import 'package:probabilidades_brasileirao/model/menu/full_scrollable_item_menu.dart';
+import 'package:probabilidades_brasileirao/model/menu/item_menu.dart';
 import 'package:probabilidades_brasileirao/model/result_item.dart';
 
 class ResultUI extends StatefulWidget {
-  final Menu itemMenu;
+  final ItemMenu itemMenu;
   final List<ResultItem> result;
 
   const ResultUI(this.itemMenu, this.result, {Key? key}) : super(key: key);
@@ -20,23 +21,39 @@ class _ResultUIState extends State<ResultUI> {
         appBar: AppBar(
           title: Text(widget.itemMenu.name),
         ),
-        body: SingleChildScrollView(
-          child: SizedBox(
-            width: double.infinity,
-            child: createDataTable(widget.itemMenu, widget.result),
-          ),
-        ),
+        body: createContainerByColumnsSize(widget.itemMenu, widget.result)
     );
   }
 
-  createDataTable(Menu itemMenu, List<ResultItem> result) {
+  createContainerByColumnsSize(ItemMenu itemMenu, List<ResultItem> result) {
+    if (itemMenu is FullScrollableItemMenu) {
+      return SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: SizedBox(
+            child: createDataTable(itemMenu, result),
+          ),
+        ),
+      );
+    }
+
+    return SingleChildScrollView(
+      child: SizedBox(
+        width: double.infinity,
+        child: createDataTable(itemMenu, result),
+      ),
+    );
+  }
+
+  DataTable createDataTable(ItemMenu itemMenu, List<ResultItem> result) {
     return DataTable(
       columns: createColumns(itemMenu),
       rows: createRows(result, itemMenu)
     );
   }
 
-  createColumns(Menu itemMenu) {
+  createColumns(ItemMenu itemMenu) {
     var columns = <DataColumn>[];
     var headers = itemMenu.headers;
     
@@ -47,7 +64,7 @@ class _ResultUIState extends State<ResultUI> {
     return columns;
   }
 
-  createRows(List<ResultItem> result, Menu itemMenu) {
+  createRows(List<ResultItem> result, ItemMenu itemMenu) {
     var rows = <DataRow>[];
     var headerSize = itemMenu.headers.length;
 

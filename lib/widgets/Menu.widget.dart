@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loader_overlay/loader_overlay.dart';
+import 'package:probabilidades_brasileirao/model/menu/item_menu.dart';
 import 'package:probabilidades_brasileirao/model/menu/menu.dart';
 import 'package:probabilidades_brasileirao/services/fetch_data.service.dart';
 import 'package:probabilidades_brasileirao/ui/result.ui.dart';
@@ -21,7 +22,7 @@ class MenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Function() onItemTapped(Menu itemMenu) {
+    Function() onItemTapped(ItemMenu itemMenu) {
       return () {
         context.loaderOverlay.show();
 
@@ -53,7 +54,7 @@ class MenuWidget extends StatelessWidget {
                 style: itemMenu.header ? titleStyle : null,
                 textDirection: TextDirection.ltr
               ),
-              onTap: itemMenu.header ? null : onItemTapped(itemMenu),
+              onTap: itemMenu.header ? null : onItemTapped(itemMenu as ItemMenu),
             );
           })
         ]
