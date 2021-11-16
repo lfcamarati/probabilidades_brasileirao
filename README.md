@@ -11,9 +11,7 @@ usando dados obtidos do site da UFMG:
 
 ### Capturas de tela
 
-![img.png](.docs/print-tela-inicial.png)
-
-![img.png](.docs/print-campeao-por-pontuacao.png)
+![img.png](.docs/print-tela-inicial.png) | ![img.png](.docs/print-campeao-por-pontuacao.png)
 
 ### Próximos passos
 
