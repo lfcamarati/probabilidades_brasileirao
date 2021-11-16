@@ -17,6 +17,6 @@ usando dados obtidos do site da UFMG:
 
 # Próximos passos
 
-- [ ] Criar uma splash screen
-- [ ] Incrementar testes dos widgets
-- [ ] Aprofundar sobre uso de layouts e tentar aplicar layouts avançados
+- [ ] criar uma splash screen
+- [ ] incrementar testes dos widgets
+- [ ] aprofundar sobre uso de layouts e tentar aplicar layouts avançados
