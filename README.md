@@ -18,3 +18,4 @@ usando dados obtidos do site da UFMG:
 - [ ] criar uma splash screen
 - [ ] incrementar testes dos widgets
 - [ ] aprofundar sobre uso de layouts e tentar aplicar layouts avançados
+- [ ] aplicar animações
